@@ -38,7 +38,7 @@ var x = 0.0 // x là biến kiểu Double
 var y = 12  // y là biến kiểu Int
 ```
 
-** Notes **
+#### Notes
 
 Trong phần lớn các trường hợp, ta nên chọn kiểu khai báo này vì nó nhanh và kiểu dữ liệu linh hoạt, ta không phải mất công xác định kiểu của một biểu thức vì trình biên dịch sẽ tự làm giùm.
 
@@ -63,7 +63,7 @@ Chỉ khác:
 - Thay thế từ khoá `var` bằng `val`
 - Giá trị khởi tạo là bắt buộc (không được lược bỏ)
 
-** Notes **
+#### Notes
 
 Ưu tiên sử dụng `val` thay cho `var`. Một biến chỉ nên được khởi tạo với một giá trị cố định đến hết vòng đời và cho một mục đích. Đừng cố tái sử dụng biến cho một mục đích khác với mục đích được khai báo lúc đầu.
 
@@ -71,7 +71,7 @@ Chỉ khác:
 
 ### Các kiểu số học
 
-** Các kiểu thường gặp **
+#### Các kiểu thường gặp
 
 - Kiểu số nguyên:
     - Byte
@@ -81,12 +81,12 @@ Chỉ khác:
     - Float
     - Double
 
-** Notes: **
+#### Notes:
 
 - Sử dụng các kiểu số thực khi và chỉ khi cần lưu trữ dữ liệu có phần thập phân.
 - Mặc định, hãy sử dụng Int cho số nguyên và Double cho số thực vì nó hợp lý trong đa phần các trường hợp
 
-** Các biểu diễn số **
+#### Các biểu diễn số
 
 - Một số thực có phần thập phân sẽ tự động được hiểu là Double
 - Một số nguyên được viết sẽ tự động được hiểu là số Int
@@ -109,7 +109,7 @@ val iPhonePrice = 30_000_000 // Biến kiểu Int
 
 ```
 
-** Ép kiểu **
+#### Ép kiểu
 
 - Khác với Java, các phép ép kiểu số học bằng các cú pháp ép kiểu thông thường là bị cấm
 - Để chuyển một giá trị sang một kiểu dữ liệu mới, ta luôn sử dụng hàm `toXXX`. Ví dụ
@@ -151,7 +151,7 @@ val str2 = "Chuoi $str có độ dài ${str.length}"
 
 Đọc thêm [Her](http://zetcode.com/kotlin/strings/)
 
-** Notes **
+#### Notes
 
 Trong phần lớn các trường hợp, hãy sử dụng string interpolation thay cho các phép `+` giữa string và các giá trị
 
