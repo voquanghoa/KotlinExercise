@@ -173,9 +173,9 @@ val str2 = "Chuoi $str có độ dài ${str.length}"
 
 Giống như Java, kotlin cũng hỗ trợ Escaping character
 
-- \\ Ký tự \
+- \\\\ Ký tự \
 - \n Xuống dòng
-- \" dấu 2 nháy
+- \\\" dấu 2 nháy
 - \t tab
 - ...
 
