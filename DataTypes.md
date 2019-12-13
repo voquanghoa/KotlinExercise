@@ -38,6 +38,29 @@ var x = 0.0 // x là biến kiểu Double
 var y = 12  // y là biến kiểu Int
 ```
 
+Tương tự Java, một biến khi được khai báo với kiểu này thì chỉ có thể nhận giá trị của kiểu đó. Thậm chí, việc kiểm tra kiểu có khi còn chặt hơn Java (Bullshit)
+
+Ví dụ các lệnh dưới đây là ok với Java
+
+```java
+int x = 10;
+long y = x;
+```
+
+Điều tương tự không xảy ra với kotlin
+
+```kotlin
+val x = 10
+val y: Long = x
+```
+
+Kotlin không cho phép ta gán trực tiếp một giá trị kiểu Int cho biến kiểu Long, thay vào đó, ta bắt buộc phải chuyển kiểu
+
+```kotlin
+val x = 10
+val y: Long = x.toLong()
+```
+
 #### Notes
 
 Trong phần lớn các trường hợp, ta nên chọn kiểu khai báo này vì nó nhanh và kiểu dữ liệu linh hoạt, ta không phải mất công xác định kiểu của một biểu thức vì trình biên dịch sẽ tự làm giùm.
@@ -146,15 +169,56 @@ val str = "Vietnam"
 println(str[2]) // Print `e`
 
 val str2 = "Chuoi $str có độ dài ${str.length}"
-
 ```
 
-Đọc thêm [Her](http://zetcode.com/kotlin/strings/)
+Giống như Java, kotlin cũng hỗ trợ Escaping character
+
+- \\ Ký tự \
+- \n Xuống dòng
+- \" dấu 2 nháy
+- \t tab
+- ...
+
+Đọc thêm [Here](http://zetcode.com/kotlin/strings/)
 
 #### Notes
 
 Trong phần lớn các trường hợp, hãy sử dụng string interpolation thay cho các phép `+` giữa string và các giá trị
 
+### Kiểu Char
+
+Kiểu Char dùng để biểu diễn 1 ký tự
+
+```kotlin
+val x = 'A'
+```
+
+Có 3 thao tác hữu ích có thể dùng trên kiểu Char là
+
+- Phép trừ giữa 2 giá trị Char sẽ cho ra khoảng cách của 2 ký tự đó
+- Phép cộng/trừ giữa 1 Char ch và một số nguyên n sẽ cho ra 1 ký tự Char sau hoặc trước ch một khoảng cách là n
+- Chuyển ch về String
+
+```kotlin
+val x = '8'
+val y = x - '0' // y : Int = 8
+val z = 'd' + 2 // z : Char = 'f'
+val t = z.toString()
+```
+
+### Kiểu phạm vi
+
+Kiểu phạm vi dùng để xác định miền giá trị, có 2 cách biểu diễn, ví dụ
+
+- 1 .. 9 // Các giá trị từ 1 đến 9, bao gồm cả 1 và 9
+- 1 until 9 // Các giá từ 1 đến 9 nhưng không bao gồm 9, hay nói cách khác là 1 đến 8
+
+Ví dụ
+
+```kotlin
+val range = 1..9
+println(6 in range) // true
+```
 
 Đọc thêm
 - [1](https://kotlinlang.org/docs/reference/basic-types.html)
