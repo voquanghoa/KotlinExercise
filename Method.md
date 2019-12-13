@@ -268,6 +268,12 @@ Ngoài ra:
 
 - Operator phải là method thuộc lớp hoặc extension method
 - Số lượng tham số tối đa là 1 (có thể 0), tuỳ thuộc operator
-- Tên hàm phải theo chính xác theo [quy định](https://kotlinlang.org/docs/reference/operator-overloading.html)
+- Tên hàm phải theo chính xác theo danh sách
 
-[Practice](https://www.codingame.com/playgrounds/6847/kotlin-operator-overloading)
+Tham khảo:
+
+- [1](https://kotlinlang.org/docs/reference/operator-overloading.html)
+- [2](https://antonioleiva.com/operator-overload-kotlin/)
+
+Practice:
+- [1](https://www.codingame.com/playgrounds/6847/kotlin-operator-overloading)
