@@ -254,6 +254,16 @@ fun main() {
 
 Ở đây: hàm times được dịch thành toán tử *.
 
+Trong kotlin, tất cả các toán tử đều được biểu diễn bằng 1 cái tên và nhờ đó ta có thể overload chúng nếu cần.
+
+Ví dụ:
+- Phép nhân * --> `times`
+- Phép trừ - --> `minus`
+- Phép chia / --> `div`
+- Các phép so sánh --> `compareTo`
+- Phép truy cập theo chỉ số --> `get`
+- ...
+
 Ngoài ra:
 
 - Operator phải là method thuộc lớp hoặc extension method
