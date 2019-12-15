@@ -2,7 +2,7 @@
 
 ## VI. Block - khối lệnh
 
-Block đơn giản là một khối lệnh bắt đầu và kết thúc bởi cặp `{` và `}`. Chẳng hạn với mã nguồn sau đây
+Block có thể coi là một khối lệnh bắt đầu và kết thúc bởi cặp `{` và `}`. Chẳng hạn với mã nguồn sau đây
 
 ```kotlin
 
@@ -32,9 +32,9 @@ Và
     print("x and y are not equal")
 }
 ```
- sau lệnh lần lượt sau `if` và `else`. Nói về block, tới đây nó đúng với cả Java và Kotlin.
+ sau lệnh lần lượt sau `if` và `else`. 
 
-Tuy nhiên, với Kotlin, block là một thực thể, cũng giống như giá trị. Điều đó có nghĩa là nó có thể được gán cho một biến, truyền cho một hàm số dưới dạng parametter hay bất kỳ điều gì mà ta dùng với một giá trị bình thường.
+Với Kotlin, block là một thực thể, cũng giống như giá trị. Điều đó có nghĩa là nó có thể được gán cho một biến, truyền cho một hàm số dưới dạng parametter hay bất kỳ điều gì mà ta dùng với một giá trị bình thường.
 
 Trở lại với ví dụ trên, ta có thể viết nó dưới dạng
 
@@ -146,4 +146,10 @@ val sum1 = sumToN(10, { it * it }) //Viết block trong ()
 val sum2 = sumToN(10) { it * it }  //Viết block ngoài ()
 ```
 
-Block cũng rất giống với `inner method` như đều có kiểu trả về, danh sách parametter và thân hàm nhưng không hề có tên hàm, nên nó có thể được gọi là `anonymous method`
+Lưu ý rằng, khi khai báo block, sẽ không có từ khoá return để kết thúc, thay vì đó, biểu thức cuối cùng sẽ chứa giá trị cho block. 
+
+Cũng vì lý do đó, khi viết block, hãy viết ngắn nhất có thể, tránh đưa các câu lệnh phức tạp vào block. Nếu thực sự cần xử lý nhiều thì ta có thể viết thành hàm và block chính là lời gọi hàm.
+
+Ta còn gọi block là một delegate vì ta chuẩn bị 1 action nhưng ta không thực thi action ngay mà sẽ thực thi vào tương lai, ở một thời điểm thích hợp nào đó.
+
+Delegate (Đại biểu): Ta cử 1 đại biểu đi họp liên hợp quốc, trước khi đi, ta dặn nó phải làm XYZ khi cuộc họp diễn ra. Đại biểu đó làm đúng như yêu cầu, khi cuộc họp diễn ra, nó đã làm những điều đã được dặn.
