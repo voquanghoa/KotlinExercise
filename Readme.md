@@ -1,7 +1,7 @@
 # Kotlin
 
 - [Getting Started](Getting-Started.md)
-- [Data types](DataTypes.md)
+- [Variable and basic Data types](DataTypes-1.md)
 - [Branch control flow](Branch-Control-Flow.md)
 - [Loop control flow](Loop-Control-Flow.md)
 - [Null safety](Null-Safety.md)
