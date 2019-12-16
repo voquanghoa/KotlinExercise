@@ -11,6 +11,29 @@ Tất cả các mảng đều có:
 - Thuộc tính `indicates` để lấy tập hợp các chỉ số mảng `[0 .. (size-1)]`
 - Và hàng tá các thứ khác :D
 
+Để duyệt qua các phần tử trong mảng, ta có các cách thức sau
+
+```kotlin
+var array = IntArray(10){it * it}
+    
+//Lặp qua các phần tử
+for(x in array){
+    println(x)
+}
+
+//Lăp theo chỉ số
+for(i in 0 until array.size){
+    println(array[i])
+}
+
+//Lăp theo chỉ số build-in
+for(i in array.indices){
+    println(array[i])
+}
+```
+
+Tuỳ theo việc cách nào tiện hơn (tuỳ lúc) mà ta nên chọn cách phù hợp
+
 ### Mảng nguyên thuỷ
 
 Mảng nguyên thuỷ là các mảng được khai báo sẵn với các kiểu dữ liệu nguyên thuỷ.
@@ -80,7 +103,7 @@ Cũng tương tự mảng build-in, ta cũng có lệnh để tạo ra mảng t�
 var points = arrayOf(point1, point2, point3)
 ```
 
-Lưu ý rằng, một mảng các phần tử NotNull thì không được gán giá trị null phần tử
+Lưu ý rằng, một mảng các phần tử NotNull thì không được gán giá trị `null` vào danh sách
 
 ```kotlin
 var points = Array(10){ Point(it, it) }
