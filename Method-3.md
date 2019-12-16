@@ -227,7 +227,7 @@ Việc gọi `method1()` là trỏ tới hàm (2) vì `this` đang là đối t�
 
 Hàm with đơn giản là dùng để nhóm các câu lệnh để tăng tính dễ đọc của code
 
-Ví dụ ta có đống code như thế này
+Ví dụ ta có đống code như thế này, nhìn khá là dễ lẫn lộn và nếu có dòng code nào đó viết nhầm gữa x và y thì khó mà nhận ra được.
 
 ```kotlin
 x.a = 1
