@@ -403,7 +403,9 @@ val point2 = Point(1, 2)
 println(point1 == point2) //true
 ```
 
-2. Hàm `toString` có hữu ích hơn
+Điều này càng cực kỳ hữu ích khi ta tìm kiếm một đối tượng bên trong một tập hợp.
+
+2. Hàm `toString` sẽ cho kết quả tường minh, hữu ích hơn
 
 ```kotlin
 class Point(var x: Int, var y: Int)
@@ -419,6 +421,8 @@ println(point1) //Point(x=1, y=2)
 ```
 
 3. Thao tác copy
+
+Ta sẽ không cần phải đi copy giá trị của từng thuộc tính nữa vì giờ mọi thứ là tự động
 
 ```kotlin
 data class Point(var x: Int, var y: Int)
@@ -688,3 +692,4 @@ class B{
 ```
 
 companion là đối tượng đại diện cho lớp, ta có thể khai báo các properties, method cho nó và cách dùng nó thì hoàn toàn giống các properties, methods static của java.
+
