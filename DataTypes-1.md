@@ -1,4 +1,4 @@
-# Biến và các kiểu dữ liệu cơ bản
+# Biến và các kiểu dữ liệu thường gặp
 
 ## 1. Biến
 
@@ -217,6 +217,144 @@ Ví dụ
 ```kotlin
 val range = 1..9
 println(6 in range) // true
+```
+
+## 3. Kiểu mảng
+
+Giống như Java, mảng là danh sách các phần tử với số lượng cố định, mỗi khi đã tạo mảng thì không được thêm bớt số lượng phần tử. Các phần tử trong mảng phải có kiểu phù hợp với kiểu mảng.
+
+Tất cả các mảng đều có:
+
+- Thuộc tính `size` lấy về số lượng phần tử
+- Toán tử `[]` để đọc ghi giá trị của mảng theo chỉ số
+- Thuộc tính `indicates` để lấy tập hợp các chỉ số mảng `[0 .. (size-1)]`
+- Và hàng tá các thứ khác :D
+
+Để duyệt qua các phần tử trong mảng, ta có các cách thức sau
+
+```kotlin
+var array = IntArray(10){it * it}
+    
+//Lặp qua các phần tử
+for(x in array){
+    println(x)
+}
+
+//Lăp theo chỉ số
+for(i in 0 until array.size){
+    println(array[i])
+}
+
+//Lăp theo chỉ số build-in
+for(i in array.indices){
+    println(array[i])
+}
+```
+
+Tuỳ theo việc cách nào tiện hơn (tuỳ lúc) mà ta nên chọn cách phù hợp
+
+### Mảng nguyên thuỷ
+
+Mảng nguyên thuỷ là các mảng được khai báo sẵn với các kiểu dữ liệu nguyên thuỷ.
+
+Chẳng hạn với kiểu Int, ta có mảng cho kiểu Int là `IntArray`.
+
+Để khởi tạo mảng có n phần tử
+
+```kotlin
+var array = IntArray(n)
+```
+
+Mảng `array` được tạo ra sẽ có `n` phần tử là các số nguyên với giá trị là `0`
+
+Ta có thể đưa block để khởi tạo giá trị các phần tử thay vì là `0`
+
+```kotlin
+var arr1 = IntArray(n){10} // Các phần tử sẽ là 10
+var arr2 = IntArray(n){it * it} // Các phần tử sẽ là 0, 1, 4, 9, ... (n-1)*(n-1)
+```
+
+Để khởi tạo một mảng từ danh sách các phần tử
+
+```kotlin
+var arr = intArrayOf(1, 2, 3, 4)
+```
+
+Tương tự, ta cũng có các mảng khác với các kiểu dữ liệu nguyên thuỷ khác
+
+
+| Kiểu phần tử | Kiểu mảng    | Lệnh khởi tạo mảng từ danh sách |
+|--------------|--------------|---------------------------------|
+| Int          | IntArray     | intArrayOf(...)                 |
+| Char         | CharArray    | charArrayOf(...)                |
+| Double       | DoubleArray  | doubleArrayOf(...)              |
+| String       | StringArray  | stringArrayOf(...)              |
+| Byte         | ByteArray    | byteArrayOf(...)                |
+| Boolean      | BooleanArray | booleanArrayOf(...)             |
+| Long         | LongArray    | longArrayOf(...)                |
+| ...          | ...          | ...                             |
+
+### Mảng định kiểu (TypedArray)
+
+Với kiểu dữ liệu nguyên thuỷ, ta sẽ dùng kiểu mảng nguyên thuỷ như trên. Tuy nhiên với một kiểu dữ liệu bất kỳ, ta sẽ dùng đến kiểu mảng định kiểu như ví dụ sau:
+
+Để khởi tạo mảng 10 phần tử cho kiểu `Point?` với các phần tử là `null`
+
+```kotlin
+var points = Array<Point?>(10){null}
+```
+
+Với kiểu `Point`, ta bắt buộc phải đưa các đối tượng của lớp `Point` vào mảng
+
+```kotlin
+var points = Array<Point>(10){ Point(it, it) }
+```
+
+Câu lệnh trên có thể rút ngắn bằng cách bỏ `<Point>` đi vì trình biên dịch dựa vào `{ Point(it, it)}` đã biết rõ kiểu của mảng là gì
+
+```kotlin
+var points = Array(10){ Point(it, it) }
+```
+
+Cũng tương tự mảng build-in, ta cũng có lệnh để tạo ra mảng từ một danh sách cố định các phần tử
+
+```kotlin
+var points = arrayOf(point1, point2, point3)
+```
+
+Lưu ý rằng, một mảng các phần tử NotNull thì không được gán giá trị `null` vào danh sách
+
+```kotlin
+var points = Array(10){ Point(it, it) }
+
+points[0] = Point(2, 3) //Ok
+points[1] = null // NOT OK
+```
+
+Ngoài ra, ta cũng có thể khai báo mảng cho kiểu dữ liệu nguyên thuỷ bằng cách này
+
+```kotlin
+var arr1 = Array(4){1} //Mảng 4 số 1
+var arr2 = arrayOf(1, 1, 1, 1)
+```
+
+Mặc dù `Array<Int>` và `IntArray` đều có cùng một ý nghĩa: `Mảng của các số nguyên Int` nhưng đáng tiếc, chúng vẫn là 2 kiểu khác nhau nên không thể gán qua lại
+
+```kotlin
+var arr1 = Array(4){1}
+var arr2 = IntArray(4){1}
+
+arr1 = arr2 //NOT OK
+```
+
+Tuy nhiên cũng không phải lo, ta luôn có hàm để chuyển đổi giữa chúng
+
+```kotlin
+var arr1 = Array(4){1}
+var arr2 = IntArray(4){1}
+
+arr1 = arr2.toTypedArray()      //OK
+arr2 = arr1.toIntArray()        //OK
 ```
 
 Đọc thêm
