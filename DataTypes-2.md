@@ -489,6 +489,6 @@ println(countries.groupBy { it.length })
 
 Output
 
-``
+```
 {9=[Indonesia, Singapore], 8=[Malaysia, Thailand, Cambodia], 11=[Philippines], 6=[Brunei], 4=[Laos], 7=[Myanmar, Vietnam]}
 ```

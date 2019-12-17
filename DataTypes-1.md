@@ -92,6 +92,8 @@ Chỉ khác:
 
 ## 2. Các kiểu dữ liệu nguyên thuỷ
 
+Thật ra Kotlin không có kiểu dữ liệu nguyên thuỷ, tất cả các giá trị đều là object. Ví dụ số `1` thực chất là một `Object` kiểu `Int` và có giá trị là 1. Ta có thể gọi các hàm của `1`, điều này không giống như Java
+
 ### Các kiểu số học
 
 #### Các kiểu thường gặp
@@ -134,13 +136,15 @@ val iPhonePrice = 30_000_000 // Biến kiểu Int
 
 #### Ép kiểu
 
-- Khác với Java, các phép ép kiểu số học bằng các cú pháp ép kiểu thông thường là bị cấm
+- Khác với Java, các phép ép kiểu số học bằng các cú pháp ép kiểu thông thường là bị cấm. Nguyên nhân là ở chổ, tất cả các giá trị số đều là những Object và 1 Object của class này không thể gán cho biến thuộc class kia nếu 2 class không có quan hệ kế thừa.
 - Để chuyển một giá trị sang một kiểu dữ liệu mới, ta luôn sử dụng hàm `toXXX`. Ví dụ
 
 ```kotlin
 val x = 123             // Khai báo biến x là Int
 val y = x.toDouble()    // Ép giá trị sang Double để gán cho y
 ```
+
+Ở đây class `Int` và `Double` là 2 class khác nhau và chúng đều kế thừa lớp `Number`. 
 
 ### Kiểu luận lý
 
